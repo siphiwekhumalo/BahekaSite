@@ -29,16 +29,16 @@ export const SERVICES = [
     ]
   },
   {
-    id: "cybersecurity",
-    title: "Cybersecurity & Compliance",
-    description: "Comprehensive security solutions and compliance frameworks to protect your business and data.",
-    icon: "Shield",
+    id: "ui-ux-design",
+    title: "UI/UX Design & Engineering",
+    description: "User-centered design and engineering solutions that create intuitive and engaging digital experiences.",
+    icon: "Palette",
     features: [
-      "Security audits and assessments",
-      "Compliance frameworks (SOC2, GDPR)",
-      "Penetration testing",
-      "Security monitoring",
-      "Incident response planning"
+      "User interface design",
+      "User experience research",
+      "Prototyping and wireframing",
+      "Design system development",
+      "Usability testing and optimization"
     ]
   },
   {
@@ -63,7 +63,7 @@ export const SERVICES = [
       "Payment processing systems",
       "Digital banking platforms",
       "Investment management tools",
-      "Fraud detection systems",
+      "Trading platform development",
       "Regulatory compliance"
     ]
   },
@@ -79,34 +79,22 @@ export const SERVICES = [
       "Infrastructure as Code",
       "24/7 monitoring and support"
     ]
-  },
-  {
-    id: "ai",
-    title: "AI & Data Analytics",
-    description: "Advanced AI integrations and data analytics solutions to unlock business insights and automation.",
-    icon: "Brain",
-    features: [
-      "Machine learning models",
-      "Predictive analytics",
-      "Natural language processing",
-      "Computer vision systems",
-      "Business intelligence dashboards"
-    ]
   }
 ];
 
 export const PORTFOLIO_PROJECTS = [
   {
-    id: "digital-banking",
-    title: "Digital Banking Platform",
+    id: "b-one-trading",
+    title: "B-One Trading Platform",
     category: "FinTech",
-    description: "Complete digital banking solution with advanced security features and real-time analytics.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=500",
-    technologies: ["React", "Node.js", "PostgreSQL", "AWS"],
+    description: "Comprehensive all-in-one trading and market data platform with real-time analytics and advanced trading tools.",
+    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=500",
+    technologies: ["React", "Node.js", "WebSocket", "PostgreSQL", "AWS"],
     results: [
-      "99.9% uptime achieved",
-      "50% reduction in processing time",
-      "Enhanced security compliance"
+      "Real-time market data processing",
+      "Advanced charting and analytics",
+      "Integrated trading execution",
+      "Multi-asset class support"
     ]
   },
   {
@@ -170,22 +158,22 @@ export const BLOG_POSTS = [
     image: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400"
   },
   {
-    id: "ai-integration-guide",
-    title: "A Complete Guide to AI Integration in Business",
-    excerpt: "Learn how to successfully integrate AI technologies into your business operations for maximum impact.",
-    author: "Michael Chen",
+    id: "ui-ux-design-trends",
+    title: "UI/UX Design Trends Shaping User Experience in 2024",
+    excerpt: "Discover the latest design principles and user experience trends that are transforming digital products.",
+    author: "Emily Rodriguez",
     date: "2024-01-10",
-    category: "AI/ML",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400"
+    category: "Design",
+    image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400"
   },
   {
-    id: "cybersecurity-best-practices",
-    title: "Cybersecurity Best Practices for Modern Businesses",
-    excerpt: "Essential security measures every business should implement to protect against evolving cyber threats.",
-    author: "David Rodriguez",
+    id: "cloud-infrastructure-guide",
+    title: "Building Scalable Cloud Infrastructure for Modern Applications",
+    excerpt: "A comprehensive guide to designing and implementing cloud-native architectures for maximum scalability.",
+    author: "Michael Chen",
     date: "2024-01-05",
-    category: "Cybersecurity",
-    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400"
+    category: "Cloud",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400"
   }
 ];
 

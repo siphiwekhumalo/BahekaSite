@@ -6,22 +6,20 @@ import { Badge } from "@/components/ui/badge";
 import { Link } from "wouter";
 import { 
   Code, 
-  Shield, 
+  Palette, 
   GraduationCap, 
   Coins, 
   Cloud, 
-  Brain,
   Check,
   ArrowRight
 } from "lucide-react";
 
 const iconMap = {
   Code,
-  Shield,
+  Palette,
   GraduationCap,
   Coins,
   Cloud,
-  Brain,
 };
 
 export default function Services() {
@@ -54,7 +52,7 @@ export default function Services() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {SERVICES.map((service, index) => {
-              const Icon = iconMap[service.icon as keyof typeof iconMap];
+              const Icon = iconMap[service.icon as keyof typeof iconMap] || Code;
               return (
                 <motion.div
                   key={service.id}

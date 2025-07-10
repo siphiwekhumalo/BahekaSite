@@ -3,21 +3,19 @@ import { Link } from "wouter";
 import { SERVICES } from "@/lib/constants";
 import { 
   Code, 
-  Shield, 
+  Palette, 
   GraduationCap, 
   Coins, 
   Cloud, 
-  Brain,
   ArrowRight
 } from "lucide-react";
 
 const iconMap = {
   Code,
-  Shield,
+  Palette,
   GraduationCap,
   Coins,
   Cloud,
-  Brain,
 };
 
 export default function Services() {
@@ -40,7 +38,7 @@ export default function Services() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {SERVICES.map((service, index) => {
-            const Icon = iconMap[service.icon as keyof typeof iconMap];
+            const Icon = iconMap[service.icon as keyof typeof iconMap] || Code;
             return (
               <motion.div
                 key={service.id}

@@ -49,7 +49,7 @@ export default function Blog() {
               />
             </div>
             <div className="flex flex-wrap gap-2">
-              {["All", "AI/ML", "FinTech", "Cybersecurity", "EdTech", "Cloud"].map((category) => (
+              {["All", "FinTech", "Design", "EdTech", "Cloud", "Software Development"].map((category) => (
                 <Badge
                   key={category}
                   variant={category === "All" ? "default" : "outline"}
@@ -242,16 +242,10 @@ export default function Blog() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                name: "AI & Machine Learning",
-                description: "Latest developments in artificial intelligence and ML",
+                name: "UI/UX Design",
+                description: "Design principles and user experience best practices",
                 count: 15,
-                icon: "🤖"
-              },
-              {
-                name: "Cybersecurity",
-                description: "Security best practices and threat analysis",
-                count: 12,
-                icon: "🔐"
+                icon: "🎨"
               },
               {
                 name: "FinTech",

@@ -8,6 +8,14 @@ This is a modern, full-stack web application for Baheka Tech, a software solutio
 
 Preferred communication style: Simple, everyday language.
 
+## Recent Changes (January 2025)
+
+- Removed cybersecurity and AI & data analytics services per user request
+- Added UI/UX Design & Engineering as a new service offering
+- Replaced Digital Banking Platform portfolio project with B-One Trading Platform
+- Updated blog posts and categories to reflect new service focus
+- Updated service icons and mappings throughout the application
+
 ## System Architecture
 
 ### Frontend Architecture
