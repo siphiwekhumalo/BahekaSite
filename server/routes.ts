@@ -2,6 +2,7 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertContactSubmissionSchema } from "@shared/schema";
+import { sendContactFormNotification } from "./email";
 import { z } from "zod";
 
 export async function registerRoutes(app: Express): Promise<Server> {
@@ -14,13 +15,20 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Create the contact submission
       const submission = await storage.createContactSubmission(validatedData);
       
-      // In a real application, you might want to send an email notification here
-      // For now, we'll just log it
+      // Send email notification
+      const recipientEmail = process.env.BAHEKA_EMAIL || "contact@bahekatech.com";
+      const emailSent = await sendContactFormNotification(submission, recipientEmail);
+      
+      if (!emailSent) {
+        console.warn("Failed to send email notification for contact form submission");
+      }
+      
       console.log("New contact submission received:", {
         id: submission.id,
         email: submission.email,
         service: submission.service,
-        name: `${submission.firstName} ${submission.lastName}`
+        name: `${submission.firstName} ${submission.lastName}`,
+        emailSent
       });
       
       res.json({ 
