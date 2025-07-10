@@ -1,0 +1,138 @@
+# Replit.md - Baheka Tech Website
+
+## Overview
+
+This is a modern, full-stack web application for Baheka Tech, a software solutions company. The application is built with React/TypeScript on the frontend and Express.js on the backend, using PostgreSQL as the database with Drizzle ORM for data management.
+
+## User Preferences
+
+Preferred communication style: Simple, everyday language.
+
+## System Architecture
+
+### Frontend Architecture
+- **Framework**: React 18 with TypeScript
+- **Build Tool**: Vite for fast development and optimized builds
+- **UI Library**: Radix UI components with shadcn/ui design system
+- **Styling**: Tailwind CSS with custom design tokens
+- **State Management**: TanStack Query for server state management
+- **Routing**: Wouter for lightweight client-side routing
+- **Animations**: Framer Motion for smooth transitions and animations
+- **Forms**: React Hook Form with Zod validation
+
+### Backend Architecture
+- **Framework**: Express.js with TypeScript
+- **Database**: PostgreSQL with Drizzle ORM
+- **Database Provider**: Neon Database (serverless PostgreSQL)
+- **API Design**: RESTful API with JSON responses
+- **Development**: Hot reloading with Vite middleware integration
+
+### Key Design Decisions
+1. **Monorepo Structure**: Frontend (`client/`), backend (`server/`), and shared code (`shared/`) in one repository
+2. **Type Safety**: Full TypeScript implementation with shared types between frontend and backend
+3. **Modern UI**: Component-based architecture with shadcn/ui for consistent design
+4. **Database-First**: Drizzle schema as the source of truth for data models
+
+## Key Components
+
+### Frontend Structure
+- **Pages**: Home, About, Services, Portfolio, Careers, Blog, Contact
+- **Components**: Reusable UI components in `client/src/components/`
+- **Sections**: Page-specific sections like Hero, Services, Portfolio
+- **Layout**: Header with navigation and Footer
+- **Forms**: Contact form with validation and submission
+
+### Backend Structure
+- **Routes**: API endpoints in `server/routes.ts`
+- **Storage**: Data access layer with in-memory fallback (`server/storage.ts`)
+- **Schema**: Database schema and validation in `shared/schema.ts`
+
+### Database Schema
+```sql
+-- Users table (basic user management)
+users: id, username, password
+
+-- Contact submissions (form submissions)
+contact_submissions: id, firstName, lastName, email, service, message, createdAt, status
+```
+
+### API Endpoints
+- `POST /api/contact` - Submit contact form
+- `GET /api/contact/submissions` - Get all contact submissions (admin)
+- `GET /api/contact/submissions/:id` - Get specific submission
+- `PUT /api/contact/submissions/:id/status` - Update submission status
+
+## Data Flow
+
+1. **Contact Form Submission**:
+   - User fills out contact form on frontend
+   - Form data validated using Zod schema
+   - POST request to `/api/contact` endpoint
+   - Backend validates and stores submission
+   - Success/error response sent back to frontend
+
+2. **Page Navigation**:
+   - Client-side routing with Wouter
+   - Single-page application with dynamic content loading
+   - Smooth transitions with Framer Motion
+
+3. **Data Management**:
+   - TanStack Query for server state caching
+   - Optimistic updates for better UX
+   - Error boundary handling
+
+## External Dependencies
+
+### Frontend Dependencies
+- **UI Framework**: React, React DOM
+- **UI Components**: Radix UI primitives, shadcn/ui components
+- **Styling**: Tailwind CSS, class-variance-authority
+- **Forms**: React Hook Form, Hookform resolvers
+- **Validation**: Zod for schema validation
+- **Animations**: Framer Motion
+- **State Management**: TanStack React Query
+- **Routing**: Wouter
+- **Icons**: Lucide React
+- **Date Handling**: date-fns
+
+### Backend Dependencies
+- **Server**: Express.js
+- **Database**: Drizzle ORM, @neondatabase/serverless
+- **Validation**: Zod, drizzle-zod
+- **Session**: connect-pg-simple (for PostgreSQL sessions)
+- **Development**: tsx for TypeScript execution
+
+### Development Dependencies
+- **Build Tools**: Vite, esbuild
+- **TypeScript**: Full TypeScript support
+- **PostCSS**: For CSS processing
+- **Replit Integration**: Replit-specific plugins and error handling
+
+## Deployment Strategy
+
+### Development
+- **Local Development**: `npm run dev` starts both frontend and backend
+- **Hot Reloading**: Vite provides instant feedback for frontend changes
+- **TypeScript Checking**: `npm run check` for type validation
+- **Database**: `npm run db:push` to sync schema changes
+
+### Production Build
+- **Frontend**: Vite builds optimized static assets to `dist/public/`
+- **Backend**: esbuild bundles server code to `dist/index.js`
+- **Single Command**: `npm run build` handles both frontend and backend
+- **Deployment**: `npm start` runs the production server
+
+### Database Management
+- **Migrations**: Drizzle Kit manages database schema changes
+- **Environment**: `DATABASE_URL` environment variable required
+- **Provider**: Neon Database for serverless PostgreSQL hosting
+
+### Key Features
+- **Responsive Design**: Mobile-first approach with Tailwind CSS
+- **SEO Optimized**: Proper meta tags and semantic HTML
+- **Performance**: Optimized images, code splitting, and caching
+- **Accessibility**: ARIA labels and keyboard navigation support
+- **Error Handling**: Comprehensive error boundaries and validation
+- **Type Safety**: End-to-end TypeScript for better developer experience
+
+The application serves as a professional company website with contact form functionality, showcasing Baheka Tech's services and portfolio while providing a solid foundation for future feature expansion.
