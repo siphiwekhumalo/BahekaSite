@@ -19,6 +19,17 @@ Preferred communication style: Simple, everyday language.
 - Fixed email service to work without SENDGRID_API_KEY (graceful fallback)
 - Added comprehensive README.md for local development setup
 - Verified project runs cleanly in Replit environment with proper security practices
+- **AWS Lambda and S3 Integration**: Complete serverless setup with hybrid deployment support
+- Added Lambda functions for contact forms, file uploads, and image processing
+- Implemented S3 integration with presigned URLs and automatic image optimization
+- Created deployment scripts and comprehensive AWS documentation
+- **Production EC2 Deployment**: Complete production infrastructure setup
+- Created comprehensive EC2 deployment scripts with SSL, monitoring, and security
+- Added Terraform infrastructure as code and Docker containerization options
+- Implemented enterprise-grade monitoring, backups, and maintenance tools
+- **Ready for Production**: Full deployment guide and automated scripts created
+- **Domain-Specific Configuration**: All scripts configured for bahekatechfirm.com deployment
+- **One-Click Deployment**: Created comprehensive deployment script for easy execution
 
 ## System Architecture
 
@@ -128,11 +139,31 @@ contact_submissions: id, firstName, lastName, email, service, message, createdAt
 - **TypeScript Checking**: `npm run check` for type validation
 - **Database**: `npm run db:push` to sync schema changes
 
+### Production Options
+
+#### Option 1: Traditional EC2 Deployment (Recommended)
+- **Complete Setup**: Automated scripts for EC2 instance configuration
+- **Production Features**: NGINX, PM2, SSL certificates, monitoring
+- **Security**: Firewall, fail2ban, security headers, database isolation
+- **Monitoring**: Health checks, automated backups, log rotation
+- **Scaling**: Easy vertical scaling, load balancer ready
+
+#### Option 2: Serverless AWS Lambda
+- **Lambda Functions**: Contact forms, file uploads, image processing
+- **S3 Integration**: Secure file storage with presigned URLs
+- **API Gateway**: RESTful API management with CORS
+- **Cost Efficient**: Pay-per-request pricing model
+
+#### Option 3: Containerized Deployment
+- **Docker**: Multi-stage builds for optimization
+- **Docker Compose**: Complete stack with PostgreSQL and NGINX
+- **Kubernetes Ready**: Easy migration to container orchestration
+
 ### Production Build
 - **Frontend**: Vite builds optimized static assets to `dist/public/`
 - **Backend**: esbuild bundles server code to `dist/index.js`
 - **Single Command**: `npm run build` handles both frontend and backend
-- **Deployment**: `npm start` runs the production server
+- **Deployment**: Multiple deployment options with automated scripts
 
 ### Database Management
 - **Migrations**: Drizzle Kit manages database schema changes
