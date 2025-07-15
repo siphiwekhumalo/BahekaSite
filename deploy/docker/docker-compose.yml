@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: ../..
+      dockerfile: deploy/docker/Dockerfile
+    container_name: baheka-tech-app
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=postgresql://bahekatech:secure_password@db:5432/baheka_tech
+    depends_on:
+      - db
+    volumes:
+      - app_logs:/app/logs
+    networks:
+      - baheka-network
+
+  db:
+    image: postgres:15-alpine
+    container_name: baheka-tech-db
+    restart: unless-stopped
+    environment:
+      - POSTGRES_DB=baheka_tech
+      - POSTGRES_USER=bahekatech
+      - POSTGRES_PASSWORD=secure_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - baheka-network
+
+  nginx:
+    image: nginx:alpine
+    container_name: baheka-tech-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./ssl:/etc/nginx/ssl:ro
+      - app_logs:/var/log/baheka-tech
+    depends_on:
+      - app
+    networks:
+      - baheka-network
+
+volumes:
+  postgres_data:
+    driver: local
+  app_logs:
+    driver: local
+
+networks:
+  baheka-network:
+    driver: bridge

@@ -19,6 +19,10 @@ Preferred communication style: Simple, everyday language.
 - Fixed email service to work without SENDGRID_API_KEY (graceful fallback)
 - Added comprehensive README.md for local development setup
 - Verified project runs cleanly in Replit environment with proper security practices
+- **AWS Lambda and S3 Integration**: Complete serverless setup with hybrid deployment support
+- Added Lambda functions for contact forms, file uploads, and image processing
+- Implemented S3 integration with presigned URLs and automatic image optimization
+- Created deployment scripts and comprehensive AWS documentation
 
 ## System Architecture
 

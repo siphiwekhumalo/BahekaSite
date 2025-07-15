@@ -4,6 +4,7 @@ import { storage } from "./storage";
 import { insertContactSubmissionSchema } from "@shared/schema";
 import { sendContactFormNotification } from "./email";
 import { z } from "zod";
+import { registerAwsRoutes } from "./routes-aws";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Contact form submission endpoint
@@ -121,6 +122,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
       });
     }
   });
+
+  // Register AWS routes for optional Lambda/S3 integration
+  registerAwsRoutes(app);
 
   const httpServer = createServer(app);
   return httpServer;

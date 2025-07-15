@@ -1,0 +1,124 @@
+service: baheka-tech-website
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  stage: ${opt:stage, 'dev'}
+  region: ${opt:region, 'us-east-1'}
+  environment:
+    STAGE: ${self:provider.stage}
+    DATABASE_URL: ${env:DATABASE_URL}
+    SENDGRID_API_KEY: ${env:SENDGRID_API_KEY}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - s3:GetObject
+        - s3:PutObject
+        - s3:DeleteObject
+      Resource: 
+        - "arn:aws:s3:::baheka-tech-${self:provider.stage}-assets/*"
+    - Effect: Allow
+      Action:
+        - s3:ListBucket
+      Resource: 
+        - "arn:aws:s3:::baheka-tech-${self:provider.stage}-assets"
+
+functions:
+  api:
+    handler: lambda/api.handler
+    events:
+      - http:
+          path: /api/{proxy+}
+          method: ANY
+          cors: true
+      - http:
+          path: /api
+          method: ANY
+          cors: true
+  
+  contactForm:
+    handler: lambda/contact.handler
+    events:
+      - http:
+          path: /api/contact
+          method: POST
+          cors: true
+  
+  fileUpload:
+    handler: lambda/upload.handler
+    events:
+      - http:
+          path: /api/upload
+          method: POST
+          cors: true
+  
+  imageResize:
+    handler: lambda/resize.handler
+    events:
+      - s3:
+          bucket: baheka-tech-${self:provider.stage}-assets
+          event: s3:ObjectCreated:*
+          rules:
+            - prefix: uploads/
+            - suffix: .jpg
+      - s3:
+          bucket: baheka-tech-${self:provider.stage}-assets
+          event: s3:ObjectCreated:*
+          rules:
+            - prefix: uploads/
+            - suffix: .png
+
+resources:
+  Resources:
+    AssetsBucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: baheka-tech-${self:provider.stage}-assets
+        PublicAccessBlockConfiguration:
+          BlockPublicAcls: false
+          BlockPublicPolicy: false
+          IgnorePublicAcls: false
+          RestrictPublicBuckets: false
+        CorsConfiguration:
+          CorsRules:
+            - AllowedHeaders:
+                - "*"
+              AllowedMethods:
+                - GET
+                - PUT
+                - POST
+                - DELETE
+              AllowedOrigins:
+                - "*"
+              MaxAge: 3600
+    
+    AssetsBucketPolicy:
+      Type: AWS::S3::BucketPolicy
+      Properties:
+        Bucket: !Ref AssetsBucket
+        PolicyDocument:
+          Statement:
+            - Sid: PublicReadGetObject
+              Effect: Allow
+              Principal: "*"
+              Action: "s3:GetObject"
+              Resource: !Sub "${AssetsBucket}/*"
+
+plugins:
+  - serverless-esbuild
+  - serverless-offline
+
+custom:
+  esbuild:
+    bundle: true
+    minify: true
+    target: node20
+    platform: node
+    exclude:
+      - "@aws-sdk/client-s3"
+      - "@aws-sdk/client-lambda"
+      - "@aws-sdk/s3-request-presigner"
+  
+  serverless-offline:
+    httpPort: 3001
+    host: 0.0.0.0

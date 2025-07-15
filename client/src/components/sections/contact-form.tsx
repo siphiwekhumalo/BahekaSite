@@ -11,6 +11,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { useToast } from "@/hooks/use-toast";
 import { SERVICES } from "@/lib/constants";
 import { apiRequest } from "@/lib/queryClient";
+import { getApiEndpoint } from "@/lib/aws-config";
 
 const contactFormSchema = z.object({
   firstName: z.string().min(2, "First name must be at least 2 characters"),
@@ -40,7 +41,9 @@ export default function ContactForm() {
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
     try {
-      await apiRequest("POST", "/api/contact", data);
+      // Use the endpoint resolver to optionally use Lambda
+      const endpoint = getApiEndpoint("/contact");
+      await apiRequest("POST", endpoint, data);
       toast({
         title: "Message sent successfully!",
         description: "We'll get back to you within 24 hours.",

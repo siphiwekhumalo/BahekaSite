@@ -23,6 +23,29 @@ export async function apiRequest(
   return res;
 }
 
+// New API request function with generic type support
+export async function apiRequestTyped<T = any>(options: {
+  url: string;
+  method?: 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH';
+  body?: any;
+  headers?: Record<string, string>;
+}): Promise<T> {
+  const { url, method = 'GET', body, headers = {} } = options;
+  
+  const response = await fetch(url, {
+    method,
+    headers: {
+      "Content-Type": "application/json",
+      ...headers,
+    },
+    body: body ? JSON.stringify(body) : undefined,
+    credentials: "include",
+  });
+
+  await throwIfResNotOk(response);
+  return response.json();
+}
+
 type UnauthorizedBehavior = "returnNull" | "throw";
 export const getQueryFn: <T>(options: {
   on401: UnauthorizedBehavior;
