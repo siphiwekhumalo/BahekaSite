@@ -82,12 +82,12 @@ export default function Services() {
                       </CardDescription>
                       
                       <div className="space-y-3">
-                        <h4 className="font-semibold text-gray-900">Key Features:</h4>
+                        <h4 className="font-semibold text-card-foreground">Key Features:</h4>
                         <ul className="space-y-2">
                           {service.features.map((feature) => (
                             <li key={feature} className="flex items-center space-x-2">
                               <Check className="h-4 w-4 text-deep-green" />
-                              <span className="text-gray-600">{feature}</span>
+                              <span className="text-muted-foreground">{feature}</span>
                             </li>
                           ))}
                         </ul>
@@ -111,7 +111,7 @@ export default function Services() {
       </section>
 
       {/* Process Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-muted">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -120,8 +120,8 @@ export default function Services() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Process</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-4xl font-bold text-foreground mb-4">Our Process</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               We follow a proven methodology to ensure successful project delivery
             </p>
           </motion.div>
@@ -160,8 +160,8 @@ export default function Services() {
                 <div className="w-16 h-16 bg-deep-green rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-4">
                   {step.step}
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">{step.title}</h3>
-                <p className="text-gray-600">{step.description}</p>
+                <h3 className="text-xl font-semibold text-foreground mb-2">{step.title}</h3>
+                <p className="text-muted-foreground">{step.description}</p>
               </motion.div>
             ))}
           </div>

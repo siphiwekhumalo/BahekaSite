@@ -130,21 +130,21 @@ export default function About() {
                 <div className="space-y-4">
                   <div className="flex items-start space-x-3">
                     <Check className="h-6 w-6 text-deep-green mt-1 flex-shrink-0" />
-                    <p className="text-gray-600">
+                    <p className="text-muted-foreground">
                       <strong>Agile Methodology:</strong> Iterative development with continuous 
                       client collaboration and feedback
                     </p>
                   </div>
                   <div className="flex items-start space-x-3">
                     <Check className="h-6 w-6 text-deep-green mt-1 flex-shrink-0" />
-                    <p className="text-gray-600">
+                    <p className="text-muted-foreground">
                       <strong>Quality Assurance:</strong> Rigorous testing and code review 
                       processes to ensure reliability
                     </p>
                   </div>
                   <div className="flex items-start space-x-3">
                     <Check className="h-6 w-6 text-deep-green mt-1 flex-shrink-0" />
-                    <p className="text-gray-600">
+                    <p className="text-muted-foreground">
                       <strong>Innovation Focus:</strong> Staying ahead of technology trends 
                       to deliver future-ready solutions
                     </p>
@@ -160,38 +160,38 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-8 bg-white rounded-xl p-8 shadow-lg"
+            className="grid grid-cols-2 md:grid-cols-4 gap-8 bg-card rounded-xl p-8 shadow-lg border border-border"
           >
             <div className="text-center">
               <div className="text-3xl font-bold text-deep-green mb-2">
                 {TEAM_STATS.developers}+
               </div>
-              <div className="text-gray-600">Developers</div>
+              <div className="text-muted-foreground">Developers</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold text-deep-green mb-2">
                 {TEAM_STATS.designers}+
               </div>
-              <div className="text-gray-600">Designers</div>
+              <div className="text-muted-foreground">Designers</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold text-deep-green mb-2">
                 {TEAM_STATS.consultants}+
               </div>
-              <div className="text-gray-600">Consultants</div>
+              <div className="text-muted-foreground">Consultants</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold text-deep-green mb-2">
                 {TEAM_STATS.projects}+
               </div>
-              <div className="text-gray-600">Projects</div>
+              <div className="text-muted-foreground">Projects</div>
             </div>
           </motion.div>
         </div>
       </section>
 
       {/* Values Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -200,8 +200,8 @@ export default function About() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Values</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-4xl font-bold text-foreground mb-4">Our Values</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               These core values guide everything we do and define who we are as a company.
             </p>
           </motion.div>
@@ -233,8 +233,8 @@ export default function About() {
                 className="text-center"
               >
                 <div className="text-6xl mb-6">{value.icon}</div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">{value.title}</h3>
-                <p className="text-gray-600">{value.description}</p>
+                <h3 className="text-2xl font-bold text-foreground mb-4">{value.title}</h3>
+                <p className="text-muted-foreground">{value.description}</p>
               </motion.div>
             ))}
           </div>

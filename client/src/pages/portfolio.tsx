@@ -125,7 +125,7 @@ export default function Portfolio() {
       </section>
 
       {/* Industries Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-muted">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -134,8 +134,8 @@ export default function Portfolio() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Industries We Serve</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-4xl font-bold text-foreground mb-4">Industries We Serve</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Our diverse portfolio spans multiple industries, demonstrating our
               ability to adapt and deliver solutions across various sectors.
             </p>
@@ -158,11 +158,11 @@ export default function Portfolio() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="text-center p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+                className="text-center p-6 bg-card rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 border border-border"
               >
                 <div className="text-4xl mb-4">{industry.icon}</div>
-                <h3 className="font-semibold text-gray-900 mb-2">{industry.name}</h3>
-                <p className="text-sm text-gray-600">{industry.projects} projects</p>
+                <h3 className="font-semibold text-card-foreground mb-2">{industry.name}</h3>
+                <p className="text-sm text-muted-foreground">{industry.projects} projects</p>
               </motion.div>
             ))}
           </div>
