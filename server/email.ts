@@ -1,11 +1,11 @@
 import sgMail from '@sendgrid/mail';
 import type { ContactSubmission } from '@shared/schema';
 
-if (!process.env.SENDGRID_API_KEY) {
-  throw new Error("SENDGRID_API_KEY environment variable must be set");
+// Initialize SendGrid only if API key is available
+const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY;
+if (SENDGRID_API_KEY) {
+  sgMail.setApiKey(SENDGRID_API_KEY);
 }
-
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 interface EmailParams {
   to: string;
@@ -16,6 +16,11 @@ interface EmailParams {
 }
 
 export async function sendEmail(params: EmailParams): Promise<boolean> {
+  if (!SENDGRID_API_KEY) {
+    console.warn('SendGrid API key not configured, skipping email send');
+    return false;
+  }
+  
   try {
     await sgMail.send({
       to: params.to,
@@ -36,6 +41,10 @@ export async function sendContactFormNotification(
   recipientEmail: string,
   fromEmail: string = 'noreply@bahekatech.com'
 ): Promise<boolean> {
+  if (!SENDGRID_API_KEY) {
+    console.warn('SendGrid API key not configured, skipping contact form notification');
+    return false;
+  }
   const subject = `New Contact Form Submission from ${submission.firstName} ${submission.lastName}`;
   
   const htmlContent = `
