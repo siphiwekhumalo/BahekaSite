@@ -3,6 +3,7 @@ import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { COMPANY_INFO } from "@/lib/constants";
 
 const navigation = [
@@ -18,7 +19,7 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
@@ -42,12 +43,13 @@ export default function Header() {
                   className={`font-medium transition-colors duration-200 ${
                     location === item.href
                       ? "text-deep-green"
-                      : "text-gray-700 hover:text-deep-green"
+                      : "text-foreground/70 hover:text-deep-green"
                   }`}
                 >
                   {item.name}
                 </Link>
               ))}
+              <ThemeToggle />
               <Link href="/contact">
                 <Button className="bg-deep-green text-white hover:bg-deep-green/90">
                   Contact
@@ -66,6 +68,9 @@ export default function Header() {
               </SheetTrigger>
               <SheetContent side="right" className="w-64">
                 <div className="flex flex-col space-y-4 mt-8">
+                  <div className="flex justify-center mb-4">
+                    <ThemeToggle />
+                  </div>
                   {navigation.map((item) => (
                     <Link
                       key={item.name}
@@ -74,7 +79,7 @@ export default function Header() {
                       className={`block px-3 py-2 font-medium transition-colors duration-200 ${
                         location === item.href
                           ? "text-deep-green"
-                          : "text-gray-700 hover:text-deep-green"
+                          : "text-foreground/70 hover:text-deep-green"
                       }`}
                     >
                       {item.name}

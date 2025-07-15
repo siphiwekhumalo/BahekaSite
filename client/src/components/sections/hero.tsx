@@ -6,7 +6,7 @@ import { Shield, CheckCircle } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="pt-20 pb-16 bg-gradient-to-br from-gray-50 to-white">
+    <section className="pt-20 pb-16 bg-gradient-to-br from-muted to-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div
@@ -16,13 +16,13 @@ export default function Hero() {
             className="space-y-8"
           >
             <div className="space-y-4">
-              <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+              <h1 className="text-5xl lg:text-6xl font-bold text-foreground leading-tight">
                 Building the
                 <span className="text-deep-green"> Future</span>
                 <br />
                 of Technology
               </h1>
-              <p className="text-xl text-gray-600 leading-relaxed">
+              <p className="text-xl text-muted-foreground leading-relaxed">
                 {COMPANY_INFO.description}
               </p>
             </div>
@@ -52,19 +52,19 @@ export default function Hero() {
                 <div className="text-3xl font-bold text-deep-green">
                   {TEAM_STATS.projects}+
                 </div>
-                <div className="text-sm text-gray-600">Projects Delivered</div>
+                <div className="text-sm text-muted-foreground">Projects Delivered</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-deep-green">
                   {TEAM_STATS.clients}+
                 </div>
-                <div className="text-sm text-gray-600">Happy Clients</div>
+                <div className="text-sm text-muted-foreground">Happy Clients</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-deep-green">
                   {TEAM_STATS.years}+
                 </div>
-                <div className="text-sm text-gray-600">Years Experience</div>
+                <div className="text-sm text-muted-foreground">Years Experience</div>
               </div>
             </div>
           </motion.div>
