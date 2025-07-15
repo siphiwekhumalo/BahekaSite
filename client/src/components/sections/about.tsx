@@ -4,7 +4,7 @@ import { Check } from "lucide-react";
 
 export default function About() {
   return (
-    <section id="about" className="py-20 bg-gray-50">
+    <section id="about" className="py-20 bg-muted">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div
@@ -13,15 +13,15 @@ export default function About() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl font-bold text-foreground mb-6">
               About {COMPANY_INFO.name}
             </h2>
-            <p className="text-lg text-gray-600 mb-6">
+            <p className="text-lg text-muted-foreground mb-6">
               Founded with a vision to transform businesses through technology,
               {COMPANY_INFO.name} has become a trusted partner for organizations
               seeking innovative software solutions.
             </p>
-            <p className="text-lg text-gray-600 mb-8">
+            <p className="text-lg text-muted-foreground mb-8">
               Our team of expert developers, designers, and strategists work
               collaboratively to deliver cutting-edge solutions that drive
               growth and efficiency.
@@ -37,7 +37,7 @@ export default function About() {
                   <div className="w-8 h-8 bg-deep-green rounded-full flex items-center justify-center">
                     <Check className="h-5 w-5 text-white" />
                   </div>
-                  <span className="text-gray-700">{item}</span>
+                  <span className="text-foreground">{item}</span>
                 </div>
               ))}
             </div>
