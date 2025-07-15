@@ -15,6 +15,8 @@ Preferred communication style: Simple, everyday language.
 - Replaced Digital Banking Platform portfolio project with B-One Trading Platform
 - Updated blog posts and categories to reflect new service focus
 - Updated service icons and mappings throughout the application
+- **Careers page removed**: Completely eliminated careers page from navigation and routing
+- **Portfolio updates**: "Learning Management System" → "EduConnect LMS", "Enterprise Cloud Migration" → "WizData (data scraping/sourcing platform)"
 - **Migration completed**: Successfully migrated from Replit Agent to Replit environment
 - Fixed email service to work without SENDGRID_API_KEY (graceful fallback)
 - Added comprehensive README.md for local development setup
