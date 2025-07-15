@@ -15,15 +15,15 @@ export default function Blog() {
       className="pt-20"
     >
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+      <section className="py-20 bg-gradient-to-br from-muted to-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-5xl font-bold text-gray-900 mb-6">Tech Blog</h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h1 className="text-5xl font-bold text-foreground mb-6">Tech Blog</h1>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Insights, tutorials, and industry trends from our team of technology experts.
               Stay updated with the latest in software development and digital innovation.
             </p>
@@ -32,7 +32,7 @@ export default function Blog() {
       </section>
 
       {/* Search and Filter */}
-      <section className="py-12 bg-white border-b border-gray-200">
+      <section className="py-12 bg-background border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -64,7 +64,7 @@ export default function Blog() {
       </section>
 
       {/* Featured Article */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -224,7 +224,7 @@ export default function Blog() {
       </section>
 
       {/* Categories Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -233,8 +233,8 @@ export default function Blog() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Explore by Category</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-4xl font-bold text-foreground mb-4">Explore by Category</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Dive deeper into specific topics that interest you most.
             </p>
           </motion.div>

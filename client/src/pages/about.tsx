@@ -72,7 +72,7 @@ export default function About() {
       </section>
 
       {/* Team Section */}
-      <section className="py-20 bg-gray-50">
+<section className="py-20 bg-muted">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -82,8 +82,8 @@ export default function About() {
             className="text-center mb-16"
           >
             <Users className="h-12 w-12 text-deep-green mx-auto mb-6" />
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Team</h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            <h2 className="text-4xl font-bold text-foreground mb-4">Our Team</h2>
+            <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
               We are a dynamic blend of young African software professionals dedicated to 
               providing cutting-edge software solutions across industries. Our team combines 
               fresh perspectives with technical expertise, bringing innovative approaches to 
@@ -96,29 +96,29 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="bg-white rounded-xl p-12 shadow-lg mb-16"
+            className="bg-card rounded-xl p-12 shadow-lg mb-16 border border-border"
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Our Expertise</h3>
+                <h3 className="text-2xl font-bold text-card-foreground mb-6">Our Expertise</h3>
                 <div className="space-y-4">
                   <div className="flex items-start space-x-3">
                     <Check className="h-6 w-6 text-deep-green mt-1 flex-shrink-0" />
-                    <p className="text-gray-600">
+                    <p className="text-muted-foreground">
                       <strong>Full-Stack Development:</strong> Modern web and mobile applications 
                       built with the latest technologies
                     </p>
                   </div>
                   <div className="flex items-start space-x-3">
                     <Check className="h-6 w-6 text-deep-green mt-1 flex-shrink-0" />
-                    <p className="text-gray-600">
+                    <p className="text-muted-foreground">
                       <strong>Cloud Solutions:</strong> Scalable cloud-native architectures 
                       and deployment strategies
                     </p>
                   </div>
                   <div className="flex items-start space-x-3">
                     <Check className="h-6 w-6 text-deep-green mt-1 flex-shrink-0" />
-                    <p className="text-gray-600">
+                    <p className="text-muted-foreground">
                       <strong>UI/UX Design:</strong> User-centered design that creates 
                       intuitive and engaging experiences
                     </p>
@@ -126,7 +126,7 @@ export default function About() {
                 </div>
               </div>
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Our Approach</h3>
+                <h3 className="text-2xl font-bold text-card-foreground mb-6">Our Approach</h3>
                 <div className="space-y-4">
                   <div className="flex items-start space-x-3">
                     <Check className="h-6 w-6 text-deep-green mt-1 flex-shrink-0" />
