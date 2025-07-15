@@ -13,7 +13,7 @@ export async function apiRequest(
   data?: unknown | undefined,
 ): Promise<Response> {
   // Use API Gateway URL in production, local API in development
-  const apiUrl = import.meta.env.VITE_API_URL || "";
+  const apiUrl = import.meta.env.VITE_API_URL || "https://qv9unk80u5.execute-api.us-east-1.amazonaws.com/prod";
   const fullUrl = apiUrl ? `${apiUrl}${url}` : url;
   
   const res = await fetch(fullUrl, {
@@ -34,7 +34,7 @@ export const getQueryFn: <T>(options: {
   ({ on401: unauthorizedBehavior }) =>
   async ({ queryKey }) => {
     // Use API Gateway URL in production, local API in development
-    const apiUrl = import.meta.env.VITE_API_URL || "";
+    const apiUrl = import.meta.env.VITE_API_URL || "https://qv9unk80u5.execute-api.us-east-1.amazonaws.com/prod";
     const url = apiUrl ? `${apiUrl}${queryKey.join("/")}` : queryKey.join("/") as string;
     
     const res = await fetch(url, {
