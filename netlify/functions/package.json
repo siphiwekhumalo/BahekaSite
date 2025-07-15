@@ -1,0 +1,8 @@
+{
+  "name": "netlify-functions",
+  "version": "1.0.0",
+  "dependencies": {
+    "@netlify/functions": "^2.8.1",
+    "@sendgrid/mail": "^8.1.5"
+  }
+}
