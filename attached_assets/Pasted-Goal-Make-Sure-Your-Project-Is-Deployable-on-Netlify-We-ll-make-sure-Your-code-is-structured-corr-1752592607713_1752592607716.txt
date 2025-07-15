@@ -1,0 +1,134 @@
+Goal: Make Sure Your Project Is Deployable on Netlify
+We'll make sure:
+
+Your code is structured correctly
+
+Netlify knows how to build it
+
+Environment variables, routing, and assets all work
+
+Your domain (bahekatechfirm.com) continues to serve your site properly after every deploy
+
+🧱 1. ✅ Project Structure
+Here’s how your repo should be laid out (Vite + React example):
+
+lua
+Copy
+Edit
+baheka-tech/
+├── public/
+│   └── index.html
+├── src/
+│   ├── App.tsx
+│   ├── main.tsx
+│   └── ...
+├── .env                 # for local env
+├── netlify.toml         ✅ config for Netlify builds (see below)
+├── package.json
+├── tsconfig.json
+└── vite.config.ts
+⚙️ 2. ✅ netlify.toml Configuration (Required for Smooth Deploys)
+Add a file named netlify.toml in your project root:
+
+toml
+Copy
+Edit
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+✅ This:
+
+Tells Netlify how to build and serve your project
+
+Ensures client-side routing works (/dashboard, /about, etc.)
+
+🌍 3. ✅ .env File (Local & Netlify Setup)
+Create a .env file in root (this is ignored by Git):
+
+env
+Copy
+Edit
+VITE_API_URL=https://your-api-id.execute-api.region.amazonaws.com/prod
+Then in your code (e.g. src/api.ts):
+
+ts
+Copy
+Edit
+const API = import.meta.env.VITE_API_URL;
+On Netlify, go to:
+
+Site → Settings → Environment Variables
+
+Add the same variable:
+
+Key: VITE_API_URL
+
+Value: your API endpoint
+
+✅ This makes the same backend endpoint available in production.
+
+🔧 4. ✅ vite.config.ts Base Path (for assets)
+Add this if you deploy to a custom subpath (rare):
+
+ts
+Copy
+Edit
+export default defineConfig({
+  base: "/",
+});
+Leave it as / if your domain points to root (bahekatechfirm.com).
+
+🧪 5. ✅ Test Build Locally
+Run:
+
+bash
+Copy
+Edit
+npm install
+npm run build
+npm run preview
+Visit http://localhost:4173 to preview your production build. If it works here, it’ll work on Netlify.
+
+🚀 6. ✅ Git Push → Netlify Deploys
+Once your repo is connected to Netlify:
+
+Every git push to main (or your chosen branch) will trigger an automatic build
+
+You’ll see deploy logs in Netlify → Deploys tab
+
+If successful, Netlify will push it live to https://bahekatechfirm.com
+
+🌐 7. ✅ Domain Works with Deploy
+Final Netlify settings to double check:
+
+Go to Site → Domain Settings
+
+Confirm bahekatechfirm.com is:
+
+✅ Added
+
+✅ Set as Primary Domain
+
+Go to HTTPS tab → SSL is enabled (Let's Encrypt) and valid
+
+🛡 Bonus (Optional, but recommended):
+Add robots.txt and sitemap.xml for SEO
+
+Add favicon and meta tags
+
+Enable analytics (Netlify Analytics, Plausible, or Google)
+
+TL;DR Project Setup
+Task	Required	File/Tool
+Build config	✅	netlify.toml
+Base path	✅	vite.config.ts
+Env vars	✅	.env, Netlify dashboard
+Routing support	✅	[[redirects]] in netlify.toml
+Domain + SSL	✅	Netlify domain panel
+Auto deploy	✅	GitHub + Netlify integration
+
