@@ -1,0 +1,262 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'API Gateway and Lambda functions for Baheka Tech contact form'
+
+Parameters:
+  DatabaseUrl:
+    Type: String
+    Description: Database URL for PostgreSQL
+    NoEcho: true
+  SendGridApiKey:
+    Type: String
+    Description: SendGrid API key for email notifications
+    NoEcho: true
+    Default: ''
+  BahekaEmail:
+    Type: String
+    Description: Email address to receive contact form submissions
+    Default: 'contact@bahekatech.com'
+
+Resources:
+  # IAM Role for Lambda functions
+  LambdaExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+      Policies:
+        - PolicyName: LambdaExecutionPolicy
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - logs:CreateLogGroup
+                  - logs:CreateLogStream
+                  - logs:PutLogEvents
+                Resource: '*'
+
+  # Lambda function for contact form submission
+  ContactLambda:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: baheka-contact-form
+      Runtime: nodejs18.x
+      Handler: contact.handler
+      Role: !GetAtt LambdaExecutionRole.Arn
+      Code:
+        ZipFile: |
+          exports.handler = async (event) => {
+            return {
+              statusCode: 200,
+              body: JSON.stringify({ message: 'Placeholder - deploy actual code' })
+            };
+          };
+      Environment:
+        Variables:
+          DATABASE_URL: !Ref DatabaseUrl
+          SENDGRID_API_KEY: !Ref SendGridApiKey
+          BAHEKA_EMAIL: !Ref BahekaEmail
+      Timeout: 30
+
+  # Lambda function for contact submissions management
+  ContactSubmissionsLambda:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: baheka-contact-submissions
+      Runtime: nodejs18.x
+      Handler: contact-submissions.handler
+      Role: !GetAtt LambdaExecutionRole.Arn
+      Code:
+        ZipFile: |
+          exports.handler = async (event) => {
+            return {
+              statusCode: 200,
+              body: JSON.stringify({ message: 'Placeholder - deploy actual code' })
+            };
+          };
+      Environment:
+        Variables:
+          DATABASE_URL: !Ref DatabaseUrl
+      Timeout: 30
+
+  # API Gateway REST API
+  ApiGateway:
+    Type: AWS::ApiGateway::RestApi
+    Properties:
+      Name: baheka-tech-api
+      Description: API for Baheka Tech contact form
+      EndpointConfiguration:
+        Types:
+          - EDGE
+
+  # API Gateway Resource for /contact
+  ContactResource:
+    Type: AWS::ApiGateway::Resource
+    Properties:
+      RestApiId: !Ref ApiGateway
+      ParentId: !GetAtt ApiGateway.RootResourceId
+      PathPart: contact
+
+  # API Gateway Method for POST /contact
+  ContactPostMethod:
+    Type: AWS::ApiGateway::Method
+    Properties:
+      RestApiId: !Ref ApiGateway
+      ResourceId: !Ref ContactResource
+      HttpMethod: POST
+      AuthorizationType: NONE
+      Integration:
+        Type: AWS_PROXY
+        IntegrationHttpMethod: POST
+        Uri: !Sub 'arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${ContactLambda.Arn}/invocations'
+      MethodResponses:
+        - StatusCode: 200
+          ResponseParameters:
+            method.response.header.Access-Control-Allow-Origin: true
+
+  # API Gateway Method for OPTIONS /contact (CORS)
+  ContactOptionsMethod:
+    Type: AWS::ApiGateway::Method
+    Properties:
+      RestApiId: !Ref ApiGateway
+      ResourceId: !Ref ContactResource
+      HttpMethod: OPTIONS
+      AuthorizationType: NONE
+      Integration:
+        Type: MOCK
+        IntegrationResponses:
+          - StatusCode: 200
+            ResponseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'"
+              method.response.header.Access-Control-Allow-Methods: "'POST,OPTIONS'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+            ResponseTemplates:
+              application/json: ''
+        PassthroughBehavior: WHEN_NO_MATCH
+        RequestTemplates:
+          application/json: '{"statusCode": 200}'
+      MethodResponses:
+        - StatusCode: 200
+          ResponseParameters:
+            method.response.header.Access-Control-Allow-Headers: true
+            method.response.header.Access-Control-Allow-Methods: true
+            method.response.header.Access-Control-Allow-Origin: true
+
+  # API Gateway Resource for /contact/submissions
+  ContactSubmissionsResource:
+    Type: AWS::ApiGateway::Resource
+    Properties:
+      RestApiId: !Ref ApiGateway
+      ParentId: !Ref ContactResource
+      PathPart: submissions
+
+  # API Gateway Method for GET /contact/submissions
+  ContactSubmissionsGetMethod:
+    Type: AWS::ApiGateway::Method
+    Properties:
+      RestApiId: !Ref ApiGateway
+      ResourceId: !Ref ContactSubmissionsResource
+      HttpMethod: GET
+      AuthorizationType: NONE
+      Integration:
+        Type: AWS_PROXY
+        IntegrationHttpMethod: POST
+        Uri: !Sub 'arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${ContactSubmissionsLambda.Arn}/invocations'
+
+  # API Gateway Resource for /contact/submissions/{id}
+  ContactSubmissionIdResource:
+    Type: AWS::ApiGateway::Resource
+    Properties:
+      RestApiId: !Ref ApiGateway
+      ParentId: !Ref ContactSubmissionsResource
+      PathPart: '{id}'
+
+  # API Gateway Method for GET /contact/submissions/{id}
+  ContactSubmissionIdGetMethod:
+    Type: AWS::ApiGateway::Method
+    Properties:
+      RestApiId: !Ref ApiGateway
+      ResourceId: !Ref ContactSubmissionIdResource
+      HttpMethod: GET
+      AuthorizationType: NONE
+      Integration:
+        Type: AWS_PROXY
+        IntegrationHttpMethod: POST
+        Uri: !Sub 'arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${ContactSubmissionsLambda.Arn}/invocations'
+
+  # API Gateway Resource for /contact/submissions/{id}/status
+  ContactSubmissionStatusResource:
+    Type: AWS::ApiGateway::Resource
+    Properties:
+      RestApiId: !Ref ApiGateway
+      ParentId: !Ref ContactSubmissionIdResource
+      PathPart: status
+
+  # API Gateway Method for PUT /contact/submissions/{id}/status
+  ContactSubmissionStatusPutMethod:
+    Type: AWS::ApiGateway::Method
+    Properties:
+      RestApiId: !Ref ApiGateway
+      ResourceId: !Ref ContactSubmissionStatusResource
+      HttpMethod: PUT
+      AuthorizationType: NONE
+      Integration:
+        Type: AWS_PROXY
+        IntegrationHttpMethod: POST
+        Uri: !Sub 'arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${ContactSubmissionsLambda.Arn}/invocations'
+
+  # Lambda permissions for API Gateway
+  ContactLambdaPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref ContactLambda
+      Action: lambda:InvokeFunction
+      Principal: apigateway.amazonaws.com
+      SourceArn: !Sub '${ApiGateway}/*/*'
+
+  ContactSubmissionsLambdaPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref ContactSubmissionsLambda
+      Action: lambda:InvokeFunction
+      Principal: apigateway.amazonaws.com
+      SourceArn: !Sub '${ApiGateway}/*/*'
+
+  # API Gateway Deployment
+  ApiGatewayDeployment:
+    Type: AWS::ApiGateway::Deployment
+    DependsOn:
+      - ContactPostMethod
+      - ContactOptionsMethod
+      - ContactSubmissionsGetMethod
+      - ContactSubmissionIdGetMethod
+      - ContactSubmissionStatusPutMethod
+    Properties:
+      RestApiId: !Ref ApiGateway
+      StageName: prod
+
+Outputs:
+  ApiGatewayUrl:
+    Description: URL of the API Gateway
+    Value: !Sub 'https://${ApiGateway}.execute-api.${AWS::Region}.amazonaws.com/prod'
+    Export:
+      Name: !Sub '${AWS::StackName}-ApiGatewayUrl'
+
+  ContactLambdaArn:
+    Description: ARN of the Contact Lambda function
+    Value: !GetAtt ContactLambda.Arn
+    Export:
+      Name: !Sub '${AWS::StackName}-ContactLambdaArn'
+
+  ContactSubmissionsLambdaArn:
+    Description: ARN of the Contact Submissions Lambda function
+    Value: !GetAtt ContactSubmissionsLambda.Arn
+    Export:
+      Name: !Sub '${AWS::StackName}-ContactSubmissionsLambdaArn'

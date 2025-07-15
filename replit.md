@@ -19,6 +19,10 @@ Preferred communication style: Simple, everyday language.
 - Fixed email service to work without SENDGRID_API_KEY (graceful fallback)
 - Added comprehensive README.md for local development setup
 - Verified project runs cleanly in Replit environment with proper security practices
+- **AWS deployment ready**: Configured full-stack AWS deployment with S3, Lambda, API Gateway
+- Created PostgreSQL database connection with Drizzle ORM
+- Added automated deployment script for AWS infrastructure
+- Updated frontend to support both local development and AWS API Gateway URLs
 
 ## System Architecture
 

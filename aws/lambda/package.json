@@ -1,0 +1,14 @@
+{
+  "name": "baheka-tech-lambda",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "contact.js",
+  "dependencies": {
+    "@neondatabase/serverless": "^0.10.4",
+    "@sendgrid/mail": "^8.1.5",
+    "drizzle-orm": "^0.39.1",
+    "drizzle-zod": "^0.7.0",
+    "ws": "^8.18.0",
+    "zod": "^3.24.2"
+  }
+}

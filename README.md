@@ -118,6 +118,30 @@ The application uses two main tables:
 
 ## Production Deployment
 
+### AWS Deployment (Recommended)
+The project is configured for full-stack AWS deployment:
+
+- **Frontend**: S3 static hosting with CloudFront CDN
+- **Backend**: AWS Lambda functions with API Gateway
+- **Database**: PostgreSQL (Neon Database or AWS RDS)
+- **Domain**: Route 53 for DNS management
+
+#### Quick AWS Deployment
+```bash
+# Set environment variables
+export DATABASE_URL="your_database_url"
+export SENDGRID_API_KEY="your_sendgrid_key"  # Optional
+export BAHEKA_EMAIL="contact@bahekatech.com"  # Optional
+
+# Run deployment script
+chmod +x aws/deploy.sh
+./aws/deploy.sh
+```
+
+See `aws/README.md` for detailed deployment instructions.
+
+### Traditional Server Deployment
+
 1. Build the application:
    ```bash
    npm run build
