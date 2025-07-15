@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import { COMPANY_INFO } from "@/lib/constants";
+import { COMPANY_INFO } from "../lib/constants";
 import { MapPin, Phone, Mail, Linkedin, Twitter, Github } from "lucide-react";
-import ContactForm from "@/components/sections/contact-form";
+import ContactForm from "../components/sections/contact-form";
 
 export default function Contact() {
   return (

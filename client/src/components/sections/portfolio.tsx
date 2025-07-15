@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
-import { Button } from "@/components/ui/button";
-import { PORTFOLIO_PROJECTS } from "@/lib/constants";
-import { Badge } from "@/components/ui/badge";
+import { Button } from "../ui/button";
+import { PORTFOLIO_PROJECTS } from "../../lib/constants";
+import { Badge } from "../ui/badge";
 
 export default function Portfolio() {
   return (

@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { COMPANY_INFO, SERVICES } from "@/lib/constants";
+import { COMPANY_INFO, SERVICES } from "../../lib/constants";
 import { Github, Linkedin, Twitter } from "lucide-react";
 
 export default function Footer() {

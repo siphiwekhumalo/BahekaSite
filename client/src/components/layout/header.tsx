@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { COMPANY_INFO } from "@/lib/constants";
+import { Button } from "../ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
+import { COMPANY_INFO } from "../../lib/constants";
 
 const navigation = [
   { name: "Home", href: "/" },

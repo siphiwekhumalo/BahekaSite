@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import Hero from "@/components/sections/hero";
-import Services from "@/components/sections/services";
-import About from "@/components/sections/about";
-import Portfolio from "@/components/sections/portfolio";
+import Hero from "../components/sections/hero";
+import Services from "../components/sections/services";
+import About from "../components/sections/about";
+import Portfolio from "../components/sections/portfolio";
 
 export default function Home() {
   return (

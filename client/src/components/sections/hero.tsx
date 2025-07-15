@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
-import { Button } from "@/components/ui/button";
-import { COMPANY_INFO, TEAM_STATS } from "@/lib/constants";
+import { Button } from "../ui/button";
+import { COMPANY_INFO, TEAM_STATS } from "../../lib/constants";
 import { Shield, CheckCircle } from "lucide-react";
 
 export default function Hero() {

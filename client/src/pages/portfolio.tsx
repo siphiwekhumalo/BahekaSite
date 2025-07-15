@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import { PORTFOLIO_PROJECTS } from "@/lib/constants";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { PORTFOLIO_PROJECTS } from "../lib/constants";
+import { Badge } from "../components/ui/badge";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../components/ui/card";
 import { ExternalLink, Github } from "lucide-react";
 
 export default function Portfolio() {

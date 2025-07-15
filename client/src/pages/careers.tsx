@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import { CAREER_POSITIONS } from "@/lib/constants";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { CAREER_POSITIONS } from "../lib/constants";
+import { Button } from "../components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../components/ui/card";
+import { Badge } from "../components/ui/badge";
 import { MapPin, Clock, Users, Heart, Star, Coffee } from "lucide-react";
 
 export default function Careers() {
