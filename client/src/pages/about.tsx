@@ -11,17 +11,17 @@ export default function About() {
       className="pt-20"
     >
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+      <section className="py-20 bg-gradient-to-br from-muted to-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="text-5xl font-bold text-foreground mb-6">
               About {COMPANY_INFO.name}
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               {COMPANY_INFO.description}
             </p>
           </motion.div>
@@ -29,7 +29,7 @@ export default function About() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <motion.div
@@ -39,12 +39,12 @@ export default function About() {
               viewport={{ once: true }}
             >
               <Target className="h-12 w-12 text-deep-green mb-6" />
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Mission</h2>
-              <p className="text-lg text-gray-600 mb-6">
+              <h2 className="text-3xl font-bold text-foreground mb-6">Our Mission</h2>
+              <p className="text-lg text-muted-foreground mb-6">
                 To empower businesses with innovative technology solutions that drive growth,
                 efficiency, and competitive advantage in the digital age.
               </p>
-              <p className="text-lg text-gray-600">
+              <p className="text-lg text-muted-foreground">
                 We believe that technology should serve humanity, and we're committed to
                 creating solutions that make a meaningful impact on people's lives and businesses.
               </p>
@@ -57,12 +57,12 @@ export default function About() {
               viewport={{ once: true }}
             >
               <Award className="h-12 w-12 text-deep-green mb-6" />
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Vision</h2>
-              <p className="text-lg text-gray-600 mb-6">
+              <h2 className="text-3xl font-bold text-foreground mb-6">Our Vision</h2>
+              <p className="text-lg text-muted-foreground mb-6">
                 To be the leading technology partner for businesses worldwide, recognized
                 for our innovation, reliability, and commitment to excellence.
               </p>
-              <p className="text-lg text-gray-600">
+              <p className="text-lg text-muted-foreground">
                 We envision a future where technology seamlessly integrates with business
                 processes, creating unprecedented opportunities for growth and success.
               </p>
