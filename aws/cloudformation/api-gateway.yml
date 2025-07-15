@@ -65,27 +65,6 @@ Resources:
           BAHEKA_EMAIL: !Ref BahekaEmail
       Timeout: 30
 
-  # Lambda function for contact submissions management
-  ContactSubmissionsLambda:
-    Type: AWS::Lambda::Function
-    Properties:
-      FunctionName: baheka-contact-submissions
-      Runtime: nodejs18.x
-      Handler: contact-submissions.handler
-      Role: !GetAtt LambdaExecutionRole.Arn
-      Code:
-        ZipFile: |
-          exports.handler = async (event) => {
-            return {
-              statusCode: 200,
-              body: JSON.stringify({ message: 'Placeholder - deploy actual code' })
-            };
-          };
-      Environment:
-        Variables:
-          DATABASE_URL: !Ref DatabaseUrl
-      Timeout: 30
-
   # API Gateway REST API
   ApiGateway:
     Type: AWS::ApiGateway::RestApi
@@ -149,82 +128,11 @@ Resources:
             method.response.header.Access-Control-Allow-Methods: true
             method.response.header.Access-Control-Allow-Origin: true
 
-  # API Gateway Resource for /contact/submissions
-  ContactSubmissionsResource:
-    Type: AWS::ApiGateway::Resource
-    Properties:
-      RestApiId: !Ref ApiGateway
-      ParentId: !Ref ContactResource
-      PathPart: submissions
-
-  # API Gateway Method for GET /contact/submissions
-  ContactSubmissionsGetMethod:
-    Type: AWS::ApiGateway::Method
-    Properties:
-      RestApiId: !Ref ApiGateway
-      ResourceId: !Ref ContactSubmissionsResource
-      HttpMethod: GET
-      AuthorizationType: NONE
-      Integration:
-        Type: AWS_PROXY
-        IntegrationHttpMethod: POST
-        Uri: !Sub 'arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${ContactSubmissionsLambda.Arn}/invocations'
-
-  # API Gateway Resource for /contact/submissions/{id}
-  ContactSubmissionIdResource:
-    Type: AWS::ApiGateway::Resource
-    Properties:
-      RestApiId: !Ref ApiGateway
-      ParentId: !Ref ContactSubmissionsResource
-      PathPart: '{id}'
-
-  # API Gateway Method for GET /contact/submissions/{id}
-  ContactSubmissionIdGetMethod:
-    Type: AWS::ApiGateway::Method
-    Properties:
-      RestApiId: !Ref ApiGateway
-      ResourceId: !Ref ContactSubmissionIdResource
-      HttpMethod: GET
-      AuthorizationType: NONE
-      Integration:
-        Type: AWS_PROXY
-        IntegrationHttpMethod: POST
-        Uri: !Sub 'arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${ContactSubmissionsLambda.Arn}/invocations'
-
-  # API Gateway Resource for /contact/submissions/{id}/status
-  ContactSubmissionStatusResource:
-    Type: AWS::ApiGateway::Resource
-    Properties:
-      RestApiId: !Ref ApiGateway
-      ParentId: !Ref ContactSubmissionIdResource
-      PathPart: status
-
-  # API Gateway Method for PUT /contact/submissions/{id}/status
-  ContactSubmissionStatusPutMethod:
-    Type: AWS::ApiGateway::Method
-    Properties:
-      RestApiId: !Ref ApiGateway
-      ResourceId: !Ref ContactSubmissionStatusResource
-      HttpMethod: PUT
-      AuthorizationType: NONE
-      Integration:
-        Type: AWS_PROXY
-        IntegrationHttpMethod: POST
-        Uri: !Sub 'arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${ContactSubmissionsLambda.Arn}/invocations'
-
   # Lambda permissions for API Gateway
   ContactLambdaPermission:
     Type: AWS::Lambda::Permission
     Properties:
       FunctionName: !Ref ContactLambda
-      Action: lambda:InvokeFunction
-      Principal: apigateway.amazonaws.com
-      SourceArn: !Sub '${ApiGateway}/*/*'
-
-  ContactSubmissionsLambdaPermission:
-    Type: AWS::Lambda::Permission
-    Properties:
-      FunctionName: !Ref ContactSubmissionsLambda
       Action: lambda:InvokeFunction
       Principal: apigateway.amazonaws.com
       SourceArn: !Sub '${ApiGateway}/*/*'
@@ -235,9 +143,6 @@ Resources:
     DependsOn:
       - ContactPostMethod
       - ContactOptionsMethod
-      - ContactSubmissionsGetMethod
-      - ContactSubmissionIdGetMethod
-      - ContactSubmissionStatusPutMethod
     Properties:
       RestApiId: !Ref ApiGateway
       StageName: prod
@@ -254,9 +159,3 @@ Outputs:
     Value: !GetAtt ContactLambda.Arn
     Export:
       Name: !Sub '${AWS::StackName}-ContactLambdaArn'
-
-  ContactSubmissionsLambdaArn:
-    Description: ARN of the Contact Submissions Lambda function
-    Value: !GetAtt ContactSubmissionsLambda.Arn
-    Export:
-      Name: !Sub '${AWS::StackName}-ContactSubmissionsLambdaArn'
