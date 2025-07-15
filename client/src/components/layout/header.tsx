@@ -23,7 +23,7 @@ export default function Header() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
-            <Link href="/" className="flex-shrink-0">
+            <Link href="/" className="flex-shrink-0 flex items-center">
               <span className="text-2xl font-bold text-deep-green">
                 {COMPANY_INFO.name.split(" ")[0]}
               </span>
@@ -34,13 +34,13 @@ export default function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
+          <div className="hidden md:flex">
+            <div className="flex items-center space-x-8">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`font-medium transition-colors duration-200 ${
+                  className={`font-medium transition-colors duration-200 px-3 py-2 whitespace-nowrap ${
                     location === item.href
                       ? "text-deep-green"
                       : "text-gray-700 hover:text-deep-green"
@@ -50,7 +50,7 @@ export default function Header() {
                 </Link>
               ))}
               <Link href="/contact">
-                <Button className="bg-deep-green text-white hover:bg-deep-green/90">
+                <Button className="bg-deep-green text-white hover:bg-deep-green/90 whitespace-nowrap">
                   Contact
                 </Button>
               </Link>

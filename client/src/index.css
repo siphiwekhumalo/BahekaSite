@@ -126,6 +126,19 @@
   .focus\:ring-deep-green:focus {
     --tw-ring-color: hsl(158, 64%, 20%);
   }
+
+  /* Navigation specific styles */
+  .navigation-item {
+    display: inline-block;
+    margin-right: 2rem;
+    white-space: nowrap;
+  }
+  
+  .navigation-container {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
 }
 
 @layer utilities {
