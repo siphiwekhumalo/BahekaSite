@@ -83,52 +83,76 @@ export default function About() {
           >
             <Users className="h-12 w-12 text-deep-green mx-auto mb-6" />
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Team</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We're a diverse team of passionate professionals dedicated to delivering
-              exceptional results for our clients.
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+              We are a dynamic blend of young African software professionals dedicated to 
+              providing cutting-edge software solutions across industries. Our team combines 
+              fresh perspectives with technical expertise, bringing innovative approaches to 
+              modern software development challenges.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            {[
-              {
-                name: "Sarah Johnson",
-                role: "CEO & Founder",
-                description: "15+ years in tech leadership, former Silicon Valley executive",
-                image: "https://images.unsplash.com/photo-1494790108755-2616b2e1a787?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300"
-              },
-              {
-                name: "Michael Chen",
-                role: "CTO",
-                description: "Expert in cloud architecture and scalable systems",
-                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300"
-              },
-              {
-                name: "Emily Rodriguez",
-                role: "Head of Design",
-                description: "Award-winning designer with focus on user experience",
-                image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300"
-              }
-            ].map((member, index) => (
-              <motion.div
-                key={member.name}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="bg-white rounded-xl p-8 shadow-lg text-center"
-              >
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-24 h-24 rounded-full mx-auto mb-6 object-cover"
-                />
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">{member.name}</h3>
-                <p className="text-deep-green font-medium mb-4">{member.role}</p>
-                <p className="text-gray-600">{member.description}</p>
-              </motion.div>
-            ))}
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="bg-white rounded-xl p-12 shadow-lg mb-16"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              <div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">Our Expertise</h3>
+                <div className="space-y-4">
+                  <div className="flex items-start space-x-3">
+                    <Check className="h-6 w-6 text-deep-green mt-1 flex-shrink-0" />
+                    <p className="text-gray-600">
+                      <strong>Full-Stack Development:</strong> Modern web and mobile applications 
+                      built with the latest technologies
+                    </p>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <Check className="h-6 w-6 text-deep-green mt-1 flex-shrink-0" />
+                    <p className="text-gray-600">
+                      <strong>Cloud Solutions:</strong> Scalable cloud-native architectures 
+                      and deployment strategies
+                    </p>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <Check className="h-6 w-6 text-deep-green mt-1 flex-shrink-0" />
+                    <p className="text-gray-600">
+                      <strong>UI/UX Design:</strong> User-centered design that creates 
+                      intuitive and engaging experiences
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">Our Approach</h3>
+                <div className="space-y-4">
+                  <div className="flex items-start space-x-3">
+                    <Check className="h-6 w-6 text-deep-green mt-1 flex-shrink-0" />
+                    <p className="text-gray-600">
+                      <strong>Agile Methodology:</strong> Iterative development with continuous 
+                      client collaboration and feedback
+                    </p>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <Check className="h-6 w-6 text-deep-green mt-1 flex-shrink-0" />
+                    <p className="text-gray-600">
+                      <strong>Quality Assurance:</strong> Rigorous testing and code review 
+                      processes to ensure reliability
+                    </p>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <Check className="h-6 w-6 text-deep-green mt-1 flex-shrink-0" />
+                    <p className="text-gray-600">
+                      <strong>Innovation Focus:</strong> Staying ahead of technology trends 
+                      to deliver future-ready solutions
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
 
           {/* Stats */}
           <motion.div
