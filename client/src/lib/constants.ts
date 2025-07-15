@@ -3,7 +3,7 @@ export const COMPANY_INFO = {
   tagline: "Modern Software Solutions",
   description: "We craft cutting-edge software solutions that transform businesses and accelerate digital innovation across industries.",
   contact: {
-    email: "hello@bahekatech.com",
+    email: "info@bahekatech.com",
     phone: "+1 (555) 123-4567",
     address: "123 Tech Street, Innovation District\nSan Francisco, CA 94107"
   },
