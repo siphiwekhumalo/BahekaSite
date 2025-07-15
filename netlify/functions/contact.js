@@ -5,7 +5,7 @@ if (process.env.SENDGRID_API_KEY) {
   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 }
 
-const BAHEKA_EMAIL = process.env.BAHEKA_EMAIL || 'contact@bahekatechfirm.com';
+const BAHEKA_EMAIL = process.env.BAHEKA_EMAIL || 'info@bahekatech.com';
 
 async function sendEmail(params) {
   const { to, from, subject, text, html } = params;

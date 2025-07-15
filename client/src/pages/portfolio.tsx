@@ -169,67 +169,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Client Testimonials */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Client Testimonials</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Don't just take our word for it. Here's what our clients say about
-              working with us.
-            </p>
-          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                quote: "Baheka Tech transformed our digital banking platform. The results exceeded our expectations in every way.",
-                author: "Sarah Williams",
-                role: "CTO, FinanceFlow",
-                image: "https://images.unsplash.com/photo-1494790108755-2616b2e1a787?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150"
-              },
-              {
-                quote: "The team's expertise in EdTech helped us create a platform that truly engages our students.",
-                author: "Dr. Michael Chen",
-                role: "Dean, TechEd University",
-                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150"
-              },
-              {
-                quote: "Their cloud migration solution reduced our costs by 60% while improving performance significantly.",
-                author: "Jennifer Rodriguez",
-                role: "VP Engineering, CloudCorp",
-                image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150"
-              }
-            ].map((testimonial, index) => (
-              <motion.div
-                key={testimonial.author}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="bg-gray-50 rounded-xl p-8 text-center"
-              >
-                <img
-                  src={testimonial.image}
-                  alt={testimonial.author}
-                  className="w-16 h-16 rounded-full mx-auto mb-4 object-cover"
-                />
-                <p className="text-gray-600 italic mb-4">"{testimonial.quote}"</p>
-                <div>
-                  <p className="font-semibold text-gray-900">{testimonial.author}</p>
-                  <p className="text-sm text-gray-600">{testimonial.role}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
     </motion.div>
   );
 }

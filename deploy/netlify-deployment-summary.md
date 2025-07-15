@@ -27,7 +27,7 @@ baheka-tech/
 Add these in Netlify Site Settings → Environment Variables:
 ```
 SENDGRID_API_KEY=your_sendgrid_api_key_here
-BAHEKA_EMAIL=contact@bahekatechfirm.com
+BAHEKA_EMAIL=info@bahekatech.com
 NODE_ENV=production
 ```
 

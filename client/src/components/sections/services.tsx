@@ -4,18 +4,16 @@ import { SERVICES } from "@/lib/constants";
 import { 
   Code, 
   Palette, 
-  GraduationCap, 
-  Coins, 
   Cloud, 
+  Settings,
   ArrowRight
 } from "lucide-react";
 
 const iconMap = {
   Code,
   Palette,
-  GraduationCap,
-  Coins,
   Cloud,
+  Settings,
 };
 
 export default function Services() {
