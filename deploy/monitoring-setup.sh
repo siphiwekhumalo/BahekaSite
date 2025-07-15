@@ -127,7 +127,7 @@ check_memory() {
 
 # Check SSL certificate expiry
 check_ssl_cert() {
-    CERT_EXPIRY=$(echo | openssl s_client -servername bahekatech.com -connect bahekatech.com:443 2>/dev/null | openssl x509 -noout -dates | grep notAfter | cut -d= -f2)
+    CERT_EXPIRY=$(echo | openssl s_client -servername bahekatechfirm.com -connect bahekatechfirm.com:443 2>/dev/null | openssl x509 -noout -dates | grep notAfter | cut -d= -f2)
     EXPIRY_DATE=$(date -d "$CERT_EXPIRY" +%s)
     CURRENT_DATE=$(date +%s)
     DAYS_UNTIL_EXPIRY=$(( ($EXPIRY_DATE - $CURRENT_DATE) / 86400 ))

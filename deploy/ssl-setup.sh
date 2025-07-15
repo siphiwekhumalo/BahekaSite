@@ -5,8 +5,8 @@
 
 set -e
 
-DOMAIN="${1:-bahekatech.com}"
-EMAIL="${2:-contact@bahekatech.com}"
+DOMAIN="${1:-bahekatechfirm.com}"
+EMAIL="${2:-contact@bahekatechfirm.com}"
 
 echo "🔒 Setting up SSL certificate for $DOMAIN..."
 

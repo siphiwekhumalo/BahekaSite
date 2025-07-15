@@ -76,8 +76,8 @@ sudo nano /var/www/baheka-tech/.env.production
 # Update these values:
 DATABASE_URL=postgresql://bahekatech:CHANGE_THIS_PASSWORD@localhost:5432/baheka_tech
 SENDGRID_API_KEY=your_sendgrid_api_key_here
-BAHEKA_EMAIL=contact@yourdomain.com
-DOMAIN=yourdomain.com
+BAHEKA_EMAIL=contact@bahekatechfirm.com
+DOMAIN=bahekatechfirm.com
 SESSION_SECRET=generate_a_secure_random_string_here
 ```
 
@@ -86,7 +86,7 @@ SESSION_SECRET=generate_a_secure_random_string_here
 ```bash
 # Run the deployment script
 cd /var/www/baheka-tech
-sudo ./deploy/app-deploy.sh yourdomain.com
+sudo ./deploy/app-deploy.sh bahekatechfirm.com
 
 # This will:
 # - Install dependencies
@@ -115,13 +115,13 @@ sudo ./deploy/app-deploy.sh yourdomain.com
    TTL: 300
    ```
 3. **Wait 5-60 minutes** for DNS propagation
-4. **Test**: `nslookup yourdomain.com` should return your IP
+4. **Test**: `nslookup bahekatechfirm.com` should return your IP
 
 ### Step 9: Setup SSL Certificate
 
 ```bash
 # Only run this AFTER DNS is pointing to your server
-sudo ./deploy/ssl-setup.sh yourdomain.com contact@yourdomain.com
+sudo ./deploy/ssl-setup.sh bahekatechfirm.com contact@bahekatechfirm.com
 
 # This will:
 # - Verify DNS is pointing to your server
@@ -149,13 +149,13 @@ sudo ./deploy/monitoring-setup.sh
 ### Check Website is Live
 ```bash
 # Test HTTP (should redirect to HTTPS)
-curl -I http://yourdomain.com
+curl -I http://bahekatechfirm.com
 
 # Test HTTPS (should return 200)
-curl -I https://yourdomain.com
+curl -I https://bahekatechfirm.com
 
 # Test contact form
-curl -X POST https://yourdomain.com/api/contact \
+curl -X POST https://bahekatechfirm.com/api/contact \
   -H "Content-Type: application/json" \
   -d '{"firstName":"Test","lastName":"User","email":"test@example.com","service":"Web Development","message":"Test message"}'
 ```

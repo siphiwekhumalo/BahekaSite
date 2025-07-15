@@ -25,7 +25,7 @@ variable "aws_region" {
 variable "domain_name" {
   description = "Domain name for the website"
   type        = string
-  default     = "bahekatech.com"
+  default     = "bahekatechfirm.com"
 }
 
 variable "instance_type" {

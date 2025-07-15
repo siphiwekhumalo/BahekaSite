@@ -6,7 +6,7 @@
 set -e
 
 APP_DIR="/var/www/baheka-tech"
-DOMAIN="${1:-bahekatech.com}"
+DOMAIN="${1:-bahekatechfirm.com}"
 USER="bahekatech"
 
 echo "🚀 Deploying Baheka Tech application..."

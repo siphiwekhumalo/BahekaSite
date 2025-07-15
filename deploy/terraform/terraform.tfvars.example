@@ -2,7 +2,7 @@
 # Copy this file to terraform.tfvars and update with your values
 
 aws_region    = "us-east-1"
-domain_name   = "bahekatech.com"
+domain_name   = "bahekatechfirm.com"
 instance_type = "t3.medium"
 key_name      = "your-ec2-key-pair-name"
 environment   = "production"

@@ -86,11 +86,11 @@ DATABASE_URL=postgresql://bahekatech:secure_password_here@localhost:5432/baheka_
 
 # Email configuration
 SENDGRID_API_KEY=your_sendgrid_api_key_here
-BAHEKA_EMAIL=contact@bahekatech.com
+BAHEKA_EMAIL=contact@bahekatechfirm.com
 
 # Domain configuration
-DOMAIN=bahekatech.com
-SUBDOMAIN=www.bahekatech.com
+DOMAIN=bahekatechfirm.com
+SUBDOMAIN=www.bahekatechfirm.com
 
 # Security
 SESSION_SECRET=your_session_secret_here
