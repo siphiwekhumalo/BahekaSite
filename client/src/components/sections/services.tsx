@@ -5,6 +5,7 @@ import {
   Code, 
   Palette, 
   Cloud, 
+  Settings,
   ArrowRight
 } from "lucide-react";
 
@@ -12,6 +13,7 @@ const iconMap = {
   Code,
   Palette,
   Cloud,
+  Settings,
 };
 
 export default function Services() {

@@ -18,6 +18,7 @@ Preferred communication style: Simple, everyday language.
 - **Careers page removed**: Completely eliminated careers page from navigation and routing
 - **Portfolio updates**: "Learning Management System" → "EduConnect LMS", "Enterprise Cloud Migration" → "WizData (data scraping/sourcing platform)"
 - **Services streamlined**: Removed EdTech platforms and FinTech systems services from both home and services pages
+- **Services expanded**: Added Automation & Consulting as a new service offering
 - **Portfolio testimonials removed**: Eliminated client testimonials section from portfolio page
 - **Migration completed**: Successfully migrated from Replit Agent to Replit environment
 - Fixed email service to work without SENDGRID_API_KEY (graceful fallback)

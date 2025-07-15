@@ -53,6 +53,19 @@ export const SERVICES = [
       "Infrastructure as Code",
       "24/7 monitoring and support"
     ]
+  },
+  {
+    id: "automation-consulting",
+    title: "Automation & Consulting",
+    description: "Strategic technology consulting and automation solutions to streamline operations and optimize business processes.",
+    icon: "Settings",
+    features: [
+      "Business process automation",
+      "Technology strategy consulting",
+      "Digital transformation roadmaps",
+      "Workflow optimization",
+      "Integration solutions"
+    ]
   }
 ];
 
