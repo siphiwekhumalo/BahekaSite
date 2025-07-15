@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
-import { SERVICES } from "../../lib/constants";
+import { SERVICES } from "@/lib/constants";
 import { 
   Code, 
   Palette, 

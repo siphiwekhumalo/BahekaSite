@@ -12,11 +12,7 @@ export async function apiRequest(
   url: string,
   data?: unknown | undefined,
 ): Promise<Response> {
-  // Use API Gateway URL in production, local API in development
-  const apiUrl = import.meta.env.VITE_API_URL || "https://qv9unk80u5.execute-api.us-east-1.amazonaws.com/prod";
-  const fullUrl = apiUrl ? `${apiUrl}${url}` : url;
-  
-  const res = await fetch(fullUrl, {
+  const res = await fetch(url, {
     method,
     headers: data ? { "Content-Type": "application/json" } : {},
     body: data ? JSON.stringify(data) : undefined,
@@ -33,11 +29,7 @@ export const getQueryFn: <T>(options: {
 }) => QueryFunction<T> =
   ({ on401: unauthorizedBehavior }) =>
   async ({ queryKey }) => {
-    // Use API Gateway URL in production, local API in development
-    const apiUrl = import.meta.env.VITE_API_URL || "https://qv9unk80u5.execute-api.us-east-1.amazonaws.com/prod";
-    const url = apiUrl ? `${apiUrl}${queryKey.join("/")}` : queryKey.join("/") as string;
-    
-    const res = await fetch(url, {
+    const res = await fetch(queryKey.join("/") as string, {
       credentials: "include",
     });
 

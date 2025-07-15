@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { COMPANY_INFO, TEAM_STATS } from "../../lib/constants";
+import { COMPANY_INFO, TEAM_STATS } from "@/lib/constants";
 import { Check } from "lucide-react";
 
 export default function About() {

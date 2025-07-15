@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
-import { BLOG_POSTS } from "../lib/constants";
-import { Badge } from "../components/ui/badge";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../components/ui/card";
-import { Input } from "../components/ui/input";
-import { Button } from "../components/ui/button";
+import { BLOG_POSTS } from "@/lib/constants";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import { Search, Calendar, User, ArrowRight } from "lucide-react";
 
 export default function Blog() {

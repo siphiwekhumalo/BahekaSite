@@ -1,9 +1,0 @@
-{
-  "name": "baheka-contact-form",
-  "version": "1.0.0",
-  "main": "contact.js",
-  "type": "module",
-  "dependencies": {
-    "@neondatabase/serverless": "^0.10.3"
-  }
-}
