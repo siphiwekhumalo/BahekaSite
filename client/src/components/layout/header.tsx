@@ -3,6 +3,7 @@ import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { COMPANY_INFO } from "@/lib/constants";
 
 const navigation = [
@@ -19,7 +20,7 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
@@ -43,7 +44,7 @@ export default function Header() {
                   className={`font-medium transition-colors duration-200 ${
                     location === item.href
                       ? "text-deep-green"
-                      : "text-gray-700 hover:text-deep-green"
+                      : "text-foreground/70 hover:text-deep-green"
                   }`}
                 >
                   {item.name}
@@ -54,11 +55,13 @@ export default function Header() {
                   Contact
                 </Button>
               </Link>
+              <ThemeToggle />
             </div>
           </div>
 
           {/* Mobile Navigation */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center space-x-2">
+            <ThemeToggle />
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon">
