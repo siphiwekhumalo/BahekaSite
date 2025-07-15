@@ -4,8 +4,6 @@ import { SERVICES } from "@/lib/constants";
 import { 
   Code, 
   Palette, 
-  GraduationCap, 
-  Coins, 
   Cloud, 
   ArrowRight
 } from "lucide-react";
@@ -13,8 +11,6 @@ import {
 const iconMap = {
   Code,
   Palette,
-  GraduationCap,
-  Coins,
   Cloud,
 };
 

@@ -42,32 +42,6 @@ export const SERVICES = [
     ]
   },
   {
-    id: "edtech",
-    title: "EdTech Platforms",
-    description: "Innovative educational technology solutions that enhance learning experiences and outcomes.",
-    icon: "GraduationCap",
-    features: [
-      "Learning management systems",
-      "Interactive course platforms",
-      "Student assessment tools",
-      "Virtual classroom solutions",
-      "Educational analytics"
-    ]
-  },
-  {
-    id: "fintech",
-    title: "FinTech Systems",
-    description: "Secure financial technology solutions for payments, banking, and investment management.",
-    icon: "Coins",
-    features: [
-      "Payment processing systems",
-      "Digital banking platforms",
-      "Investment management tools",
-      "Trading platform development",
-      "Regulatory compliance"
-    ]
-  },
-  {
     id: "cloud",
     title: "Cloud Infrastructure",
     description: "Scalable cloud solutions and DevOps practices for modern application deployment and management.",
