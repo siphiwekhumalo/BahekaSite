@@ -95,13 +95,13 @@ export default function Blog() {
                 <Badge className="bg-tech-gold text-black">Featured</Badge>
                 <Badge variant="outline">{BLOG_POSTS[0].category}</Badge>
               </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-4">
+              <h3 className="text-3xl font-bold text-foreground mb-4">
                 {BLOG_POSTS[0].title}
               </h3>
-              <p className="text-lg text-gray-600 mb-6">
+              <p className="text-lg text-muted-foreground mb-6">
                 {BLOG_POSTS[0].excerpt}
               </p>
-              <div className="flex items-center space-x-4 text-sm text-gray-500 mb-6">
+              <div className="flex items-center space-x-4 text-sm text-muted-foreground mb-6">
                 <div className="flex items-center space-x-1">
                   <User className="h-4 w-4" />
                   <span>{BLOG_POSTS[0].author}</span>
@@ -121,7 +121,7 @@ export default function Blog() {
       </section>
 
       {/* Blog Grid */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-muted">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -130,8 +130,8 @@ export default function Blog() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Latest Articles</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-4xl font-bold text-foreground mb-4">Latest Articles</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Explore our latest insights and technical deep-dives.
             </p>
           </motion.div>
@@ -153,7 +153,7 @@ export default function Blog() {
                       className="w-full h-48 object-cover rounded-t-lg group-hover:scale-105 transition-transform duration-300"
                     />
                     <div className="absolute top-4 left-4">
-                      <Badge variant="outline" className="bg-white">
+                      <Badge variant="outline" className="bg-background">
                         {post.category}
                       </Badge>
                     </div>
@@ -166,11 +166,11 @@ export default function Blog() {
                   </CardHeader>
                   
                   <CardContent>
-                    <CardDescription className="text-gray-600 mb-4 line-clamp-3">
+                    <CardDescription className="text-muted-foreground mb-4 line-clamp-3">
                       {post.excerpt}
                     </CardDescription>
                     
-                    <div className="flex items-center justify-between text-sm text-gray-500">
+                    <div className="flex items-center justify-between text-sm text-muted-foreground">
                       <div className="flex items-center space-x-1">
                         <User className="h-3 w-3" />
                         <span>{post.author}</span>
@@ -181,7 +181,7 @@ export default function Blog() {
                       </div>
                     </div>
                     
-                    <div className="mt-4 pt-4 border-t border-gray-200">
+                    <div className="mt-4 pt-4 border-t border-border">
                       <Button variant="ghost" className="w-full justify-between p-0 h-auto text-deep-green hover:text-tech-gold">
                         Read More
                         <ArrowRight className="h-4 w-4" />
@@ -278,15 +278,15 @@ export default function Blog() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="p-6 bg-gray-50 rounded-xl hover:shadow-lg transition-shadow duration-300 cursor-pointer group"
+                className="p-6 bg-card rounded-xl hover:shadow-lg transition-shadow duration-300 cursor-pointer group border border-border"
               >
                 <div className="text-4xl mb-4">{category.icon}</div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-deep-green transition-colors">
+                <h3 className="text-xl font-semibold text-card-foreground mb-2 group-hover:text-deep-green transition-colors">
                   {category.name}
                 </h3>
-                <p className="text-gray-600 mb-4">{category.description}</p>
+                <p className="text-muted-foreground mb-4">{category.description}</p>
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-gray-500">{category.count} articles</span>
+                  <span className="text-sm text-muted-foreground">{category.count} articles</span>
                   <ArrowRight className="h-4 w-4 text-deep-green opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
               </motion.div>
