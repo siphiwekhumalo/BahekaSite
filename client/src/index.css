@@ -74,32 +74,8 @@
     color: hsl(158, 64%, 20%);
   }
   
-  .dark .text-deep-green {
-    color: hsl(158, 64%, 40%);
-  }
-  
   .text-tech-gold {
     color: hsl(43, 96%, 56%);
-  }
-  
-  .dark .text-tech-gold {
-    color: hsl(43, 96%, 66%);
-  }
-  
-  .bg-deep-green {
-    background-color: hsl(158, 64%, 20%);
-  }
-  
-  .dark .bg-deep-green {
-    background-color: hsl(158, 64%, 25%);
-  }
-  
-  .bg-tech-gold {
-    background-color: hsl(43, 96%, 56%);
-  }
-  
-  .dark .bg-tech-gold {
-    background-color: hsl(43, 96%, 46%);
   }
   
   .text-light-green {
@@ -108,6 +84,14 @@
   
   .text-dark-gray {
     color: hsl(220, 13%, 18%);
+  }
+  
+  .bg-deep-green {
+    background-color: hsl(158, 64%, 20%);
+  }
+  
+  .bg-tech-gold {
+    background-color: hsl(43, 96%, 56%);
   }
   
   .bg-light-green {

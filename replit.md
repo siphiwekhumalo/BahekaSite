@@ -19,9 +19,6 @@ Preferred communication style: Simple, everyday language.
 - Fixed email service to work without SENDGRID_API_KEY (graceful fallback)
 - Added comprehensive README.md for local development setup
 - Verified project runs cleanly in Replit environment with proper security practices
-- **Three.js animated background**: Added particle system with connecting lines that adapts to theme
-- **Dark mode support**: Full theme system with light/dark/system modes and theme toggle button
-- **Enhanced UI**: Updated header and footer with proper dark mode styling
 
 ## System Architecture
 
@@ -105,8 +102,6 @@ contact_submissions: id, firstName, lastName, email, service, message, createdAt
 - **Forms**: React Hook Form, Hookform resolvers
 - **Validation**: Zod for schema validation
 - **Animations**: Framer Motion
-- **3D Graphics**: Three.js for animated background
-- **Theme System**: next-themes for dark mode support
 - **State Management**: TanStack React Query
 - **Routing**: Wouter
 - **Icons**: Lucide React
@@ -146,9 +141,6 @@ contact_submissions: id, firstName, lastName, email, service, message, createdAt
 
 ### Key Features
 - **Responsive Design**: Mobile-first approach with Tailwind CSS
-- **Dark Mode**: Full theme system with light, dark, and system modes
-- **3D Background**: Animated particle system with Three.js that adapts to theme
-- **Theme Toggle**: Easy theme switching in header navigation
 - **SEO Optimized**: Proper meta tags and semantic HTML
 - **Performance**: Optimized images, code splitting, and caching
 - **Accessibility**: ARIA labels and keyboard navigation support
