@@ -17,7 +17,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const submission = await storage.createContactSubmission(validatedData);
       
       // Send email notification
-      const recipientEmail = process.env.BAHEKA_EMAIL || "contact@bahekatech.com";
+      const recipientEmail = process.env.BAHEKA_EMAIL || "info@bahekatech.com";
       const emailSent = await sendContactFormNotification(submission, recipientEmail);
       
       if (!emailSent) {

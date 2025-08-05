@@ -63,7 +63,7 @@ export function registerAwsRoutes(app: Express) {
         if (process.env.SENDGRID_API_KEY) {
           sendContactFormNotification(
             submission,
-            'contact@bahekatech.com'
+            'info@bahekatech.com'
           ).catch(console.error);
         }
 

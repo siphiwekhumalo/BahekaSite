@@ -55,22 +55,13 @@ export default function Contact() {
                   <div className="w-12 h-12 bg-deep-green rounded-lg flex items-center justify-center flex-shrink-0">
                     <MapPin className="h-6 w-6 text-white" />
                   </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Our Office</h3>
-                    <p className="text-gray-600 whitespace-pre-line">
-                      {COMPANY_INFO.contact.address}
-                    </p>
-                  </div>
                 </div>
 
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-deep-green rounded-lg flex items-center justify-center flex-shrink-0">
                     <Phone className="h-6 w-6 text-white" />
                   </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Call Us</h3>
-                    <p className="text-gray-600">{COMPANY_INFO.contact.phone}</p>
-                  </div>
+                 
                 </div>
 
                 <div className="flex items-start space-x-4">
