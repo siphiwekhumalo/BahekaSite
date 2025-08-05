@@ -39,7 +39,7 @@ export async function sendEmail(params: EmailParams): Promise<boolean> {
 export async function sendContactFormNotification(
   submission: ContactSubmission,
   recipientEmail: string,
-  fromEmail: string = 'noreply@bahekatech.com'
+  fromEmail: string = 'info@bahekatech.com'
 ): Promise<boolean> {
   if (!SENDGRID_API_KEY) {
     console.warn('SendGrid API key not configured, skipping contact form notification');

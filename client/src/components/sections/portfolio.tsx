@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 
 export default function Portfolio() {
   return (
-    <section id="portfolio" className="py-20 bg-white">
+    <section id="portfolio" className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -15,10 +15,10 @@ export default function Portfolio() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl font-bold text-foreground mb-4">
             Portfolio & Case Studies
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Explore our recent projects and success stories that showcase our
             expertise across various industries.
           </p>

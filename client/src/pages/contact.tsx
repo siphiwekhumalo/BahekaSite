@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { COMPANY_INFO } from "@/lib/constants";
-import { MapPin, Phone, Mail, Linkedin, Twitter, Github } from "lucide-react";
+import { Mail, MapPin, Phone, Linkedin, Twitter, Github } from "lucide-react";
 import ContactForm from "@/components/sections/contact-form";
 
 export default function Contact() {
@@ -12,15 +12,15 @@ export default function Contact() {
       className="pt-20"
     >
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+      <section className="py-20 bg-gradient-to-br from-muted to-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-5xl font-bold text-gray-900 mb-6">Get In Touch</h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h1 className="text-5xl font-bold text-foreground mb-6">Get In Touch</h1>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Ready to transform your business with cutting-edge technology? 
               Let's discuss your project and explore how we can help you achieve your goals.
             </p>
@@ -29,7 +29,7 @@ export default function Contact() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Contact Information */}
@@ -41,10 +41,10 @@ export default function Contact() {
               className="space-y-8"
             >
               <div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                <h2 className="text-3xl font-bold text-foreground mb-6">
                   Let's Start a Conversation
                 </h2>
-                <p className="text-lg text-gray-600 mb-8">
+                <p className="text-lg text-muted-foreground mb-8">
                   We'd love to hear about your project and discuss how our expertise
                   can help bring your vision to life.
                 </p>
@@ -55,13 +55,22 @@ export default function Contact() {
                   <div className="w-12 h-12 bg-deep-green rounded-lg flex items-center justify-center flex-shrink-0">
                     <MapPin className="h-6 w-6 text-white" />
                   </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-foreground mb-2">Our Office</h3>
+                    <p className="text-muted-foreground whitespace-pre-line">
+                      {COMPANY_INFO.contact.address}
+                    </p>
+                  </div>
                 </div>
 
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-deep-green rounded-lg flex items-center justify-center flex-shrink-0">
                     <Phone className="h-6 w-6 text-white" />
                   </div>
-                 
+                  <div>
+                    <h3 className="text-lg font-semibold text-foreground mb-2">Call Us</h3>
+                    <p className="text-muted-foreground">{COMPANY_INFO.contact.phone}</p>
+                  </div>
                 </div>
 
                 <div className="flex items-start space-x-4">
@@ -69,14 +78,14 @@ export default function Contact() {
                     <Mail className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Email Us</h3>
-                    <p className="text-gray-600">{COMPANY_INFO.contact.email}</p>
+                    <h3 className="text-lg font-semibold text-foreground mb-2">Email Us</h3>
+                    <p className="text-muted-foreground">{COMPANY_INFO.contact.email}</p>
                   </div>
                 </div>
               </div>
 
               <div className="pt-8">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Follow Us</h3>
+                <h3 className="text-lg font-semibold text-foreground mb-4">Follow Us</h3>
                 <div className="flex space-x-4">
                   <a
                     href={COMPANY_INFO.social.linkedin}
@@ -114,7 +123,7 @@ export default function Contact() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-muted">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -123,10 +132,10 @@ export default function Contact() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl font-bold text-foreground mb-4">
               Frequently Asked Questions
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Get answers to common questions about our services and processes.
             </p>
           </motion.div>
@@ -164,12 +173,12 @@ export default function Contact() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-xl p-6 shadow-lg"
+                className="bg-card rounded-xl p-6 shadow-lg border border-border"
               >
-                <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                <h3 className="text-lg font-semibold text-card-foreground mb-3">
                   {faq.question}
                 </h3>
-                <p className="text-gray-600">{faq.answer}</p>
+                <p className="text-muted-foreground">{faq.answer}</p>
               </motion.div>
             ))}
           </div>

@@ -3,7 +3,7 @@ export const COMPANY_INFO = {
   tagline: "Modern Software Solutions",
   description: "We craft cutting-edge software solutions that transform businesses and accelerate digital innovation across industries.",
   contact: {
-    email: "hello@bahekatech.com",
+    email: "info@bahekatech.com",
     phone: "+1 (555) 123-4567",
     address: "123 Tech Street, Innovation District\nSan Francisco, CA 94107"
   },
@@ -42,32 +42,6 @@ export const SERVICES = [
     ]
   },
   {
-    id: "edtech",
-    title: "EdTech Platforms",
-    description: "Innovative educational technology solutions that enhance learning experiences and outcomes.",
-    icon: "GraduationCap",
-    features: [
-      "Learning management systems",
-      "Interactive course platforms",
-      "Student assessment tools",
-      "Virtual classroom solutions",
-      "Educational analytics"
-    ]
-  },
-  {
-    id: "fintech",
-    title: "FinTech Systems",
-    description: "Secure financial technology solutions for payments, banking, and investment management.",
-    icon: "Coins",
-    features: [
-      "Payment processing systems",
-      "Digital banking platforms",
-      "Investment management tools",
-      "Trading platform development",
-      "Regulatory compliance"
-    ]
-  },
-  {
     id: "cloud",
     title: "Cloud Infrastructure",
     description: "Scalable cloud solutions and DevOps practices for modern application deployment and management.",
@@ -78,6 +52,19 @@ export const SERVICES = [
       "Container orchestration",
       "Infrastructure as Code",
       "24/7 monitoring and support"
+    ]
+  },
+  {
+    id: "automation-consulting",
+    title: "Automation & Consulting",
+    description: "Strategic technology consulting and automation solutions to streamline operations and optimize business processes.",
+    icon: "Settings",
+    features: [
+      "Business process automation",
+      "Technology strategy consulting",
+      "Digital transformation roadmaps",
+      "Workflow optimization",
+      "Integration solutions"
     ]
   }
 ];
@@ -99,7 +86,7 @@ export const PORTFOLIO_PROJECTS = [
   },
   {
     id: "lms-platform",
-    title: "Learning Management System",
+    title: "EduConnect LMS",
     category: "EdTech",
     description: "Comprehensive LMS with AI-powered personalization and interactive learning tools.",
     image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=500",
@@ -112,15 +99,16 @@ export const PORTFOLIO_PROJECTS = [
   },
   {
     id: "cloud-migration",
-    title: "Enterprise Cloud Migration",
-    category: "Cloud",
-    description: "Seamless cloud migration with 99.9% uptime and enhanced security protocols.",
+    title: "WizData",
+    category: "Data Platform",
+    description: "Advanced data scraping and sourcing platform for comprehensive data collection and analysis.",
     image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=500",
-    technologies: ["AWS", "Kubernetes", "Terraform", "CI/CD"],
+    technologies: ["Python", "Scrapy", "Apache Airflow", "MongoDB", "Redis"],
     results: [
-      "60% cost reduction",
-      "Zero downtime migration",
-      "Improved scalability"
+      "Multi-source data aggregation",
+      "Real-time data processing",
+      "Automated data quality checks",
+      "Scalable data pipeline architecture"
     ]
   },
   {
